@@ -38,7 +38,6 @@ elif [ ! -r "$log_file" ] ; then
 	exit 2
 fi
 
-# print filename and threshold used for analysis
 echo "=================================================="
 echo " Analyzing $log_file for failed SSH logins..."
 echo " Alert Threshold: $threshold failed attempts"
@@ -47,31 +46,11 @@ echo "=================================================="
 # array to track malicious IPs
 malicious_ips=()
 
-# logic explanation:
-# pipe 1: find lines with "Failed password"
-# pipe 2: extract ip addresses using regex
-# pipe 3, 4, 5: count unique ips and sort them in descending order
-# output is fed into a while loop to display alert based on count and ip
 while read count ip ; do
-	if [ $count -ge $threshold ] ; then
-		echo "[ALERT] $ip detected with $count login attempts."
+	if [ count -ge $threshold ] ; then
+		echo "[ALERT]: %ip detected with $count login attempts."
 		malicious_ips[${#malicious_ips[@]}]=$ip
 	fi
 done < <(grep "Failed password" "$log_file" | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | sort | uniq -c | sort -nr)
 
 echo "=================================================="
-
-total_alerts=${#malicious_ips[@]}
-
-if [ $total_alerts -gt 0 ] ; then
-	echo "Summary: Found $total_alerts IP(s) exceeding the threshold."
-	echo "Recommended Action: Consider blocking the following IP(s) in your firewall:"
-	
-	for malicious_ip in "${malicious_ips[@]}" ; do
-		echo " - sudo ufw deny from $malicious_ip"
-	done
-else
-	echo "Summary: No IPs exceeded the threshold of $threshold."
-fi
-
-exit 0
