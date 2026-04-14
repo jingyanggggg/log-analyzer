@@ -63,6 +63,7 @@ echo "=================================================="
 
 total_alerts=${#malicious_ips[@]}
 
+# produce a summary of the findings
 if [ $total_alerts -gt 0 ] ; then
 	echo "Summary: Found $total_alerts IP(s) exceeding the threshold."
 	echo "Recommended Action: Consider blocking the following IP(s) in your firewall:"
