@@ -1,8 +1,8 @@
 # SSH Brute-Force Log Analyzer
 
-**Hello!** I recently finished learning Bash scripting, and this is my first hands-on cybersecurity project to put those skills to the test.
+**Hello!** I recently finished learning about Bash scripting, and I did this project as an application of what I learnt.
 
-## What does it do?
+## What does this script do?
 This is a simple Bash script that parses SSH authentication logs and identifies potential brute-force attacks. It displays an alert message if an IP exceeds a specified threshold of failed login attempts.
 
 ## Features
