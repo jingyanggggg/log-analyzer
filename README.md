@@ -3,11 +3,11 @@
 **Hello!** I recently finished learning Bash scripting, and this is my first hands-on cybersecurity project to put those skills to the test.
 
 ## What does it do?
-This is a simple Bash script that parses SSH authentication logs and identifies potential brute-force attacks. It will display an alert message if an IP exceeds a specified threshold of failed login attempts.
+This is a simple Bash script that parses SSH authentication logs and identifies potential brute-force attacks. It displays an alert message if an IP exceeds a specified threshold of failed login attempts.
 
 ## Features
-* **Set your own limits:** You can decide how many failed attempts it takes to trigger an alert (the default is 5).
-* **Speedy text processing:** It uses standard Linux tools like `grep`, `sort`, and `uniq` to process logs quickly.
+* **Customize threshold:** You can adjust how many failed attempts it takes to trigger an alert (the default is 5).
+* **Text processing:** It uses standard Linux tools like `grep`, `sort`, and `uniq` to process logs quickly.
 * **RegEx logic:** It uses Regular Expressions to accurately extract the IPv4 addresses from the logs.
 * **Error handling:** It tells you if you forgot a file, don't have read permissions, and exits cleanly if you hit ``Ctrl+C``.
 
@@ -19,13 +19,13 @@ Before running it for the first time, give it permission to run:
 chmod +x log-analyzer.sh
 ```
 
-**2. Run it**
+**2. Run it**  
 The basic way to run it is by giving it a log file to look at:
 ```bash
 ./log-analyzer.sh auth.log
 ```
 
-**3. Change the threshold**
+**3. Change the threshold**  
 You can customize the threshold as you wish, but the default is 5.
 
 ## Test Data Included
