@@ -49,7 +49,7 @@ malicious_ips=()
 
 # logic explanation:
 # pipe 1: find lines with "Failed password"
-# pipe 2: extract ip addresses using regex
+# pipe 2: extract ipv4 addresses using regex
 # pipe 3, 4, 5: count unique ips and sort them in descending order
 # output is fed into a while loop to display alert based on count and ip
 while read count ip ; do
