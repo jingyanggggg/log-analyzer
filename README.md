@@ -25,10 +25,10 @@ The basic way to run it is by giving it a log file to look at:
 ./log-analyzer.sh auth.log
 ```
 
-**3. Change the threshold**  
+**3. Change the threshold**   
 You can customize the threshold as you wish, but the default is 5.
 
 ## Test Data Included
 * If you want to test this script, I've included a sample auth.log file in this repo. 
-* The sample is taken from [Elastic Examples Github Repo](https://github.com/elastic/examples/blob/master/Machine%20Learning/Security%20Analytics%20Recipes/suspicious_login_activity/data/auth.log) to best simulate the real-world scenario.
+* The sample is taken from [Elastic Examples Github Repo](https://github.com/elastic/examples/blob/master/Machine%20Learning/Security%20Analytics%20Recipes/suspicious_login_activity/data/auth.log) to simulate real-world attacks.
 
